@@ -6,10 +6,10 @@ import { bindActionCreators } from "redux";
 
 class SearchContainer extends Component {
   state = {
-    value: "Luis Fonsi",
+    value: "",
+    exitVerification: false,
   };
   handleSubmit = (event) => {
-    console.log("esta es una prueba");
     event.preventDefault();
     // console.log(this.input.value, 'submit')
     // fetch(`http://miapi.com/buscar/${this.input.value}`).then((data)=>{
@@ -22,6 +22,7 @@ class SearchContainer extends Component {
   handleInputChange = (event) => {
     this.setState({
       value: event.target.value.replace(" ", "-"),
+      exitVerification: !!(event.target.value.length),//igual que operadores ternarios
     });
   };
   render() {
@@ -31,6 +32,7 @@ class SearchContainer extends Component {
         handleSubmit={this.handleSubmit}
         handleChange={this.handleInputChange}
         value={this.state.value}
+        exitVerification={this.state.exitVerification}
       />
     );
   }

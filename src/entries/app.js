@@ -1,4 +1,4 @@
-import React,{Fragment} from "react";
+import React, { Fragment } from "react";
 import { render } from "react-dom";
 import Videos from "../pages/containers/videos";
 import Home from "../pages/components/home";
@@ -9,8 +9,9 @@ import reducer from "../reducers/index";
 import { Map as map } from "immutable";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
+import PagenotFound from "../pages/components/not-found";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch,Redirect } from "react-router-dom";
 import Header from "../pages/components/header.js";
 // function logger({ getState, dispatch}) {
 //   return (next) => {
@@ -45,9 +46,13 @@ render(
     <Provider store={store}>
       <Fragment>
         <Header />
-        <Route path="/" exact component={Home}/>
-        <Route path="/videos" exact component={Videos}/> 
-        <Route path="/contacto" exact component={Contact}/> 
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/videos" exact component={Videos} />
+          <Route path="/contacto" exact component={Contact} />
+          <Redirect from="/v" to="/videos" />
+          <Route component={PagenotFound} />
+        </Switch>
       </Fragment>
     </Provider>
   </BrowserRouter>,
