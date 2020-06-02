@@ -3,7 +3,6 @@ import Media from '../components/media';
 import { connect } from 'react-redux';
 import  * as actions from '../../actions/index';
 import { bindActionCreators } from 'redux';
-
 class MediaContainer extends Component {
   openModal = (id) => {
     this.props.actions.openModal(id)
