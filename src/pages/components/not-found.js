@@ -1,18 +1,20 @@
 import React, { PureComponent } from "react";
 import "./generic-page.css";
+
+import { withRouter } from "react-router";
 class PagenotFound extends PureComponent {
-    handleBeforePage =()=>{
-        this.props.history.goBack();
-        // this.props.history.go(-2); regresa dos paginas
-    }
-    handleRandomVideo =()=>{
-        const random = Math.round( Math.random()*(10-1)+1);
-        this.props.history.push(`/videos?id=${random}`);
-    }
-    handleNextPage =()=>{
-        this.props.history.goForward();
-    }
-    render() {
+  handleBeforePage = () => {
+    this.props.history.goBack();
+    // this.props.history.go(-2); regresa dos paginas
+  };
+  handleRandomVideo = () => {
+    const random = Math.round(Math.random() * (10 - 1) + 1);
+    this.props.history.push(`/videos?id=${random}`);
+  };
+  handleNextPage = () => {
+    this.props.history.goForward();
+  };
+  render() {
     return (
       <div className="Page NorFound">
         <h1>404</h1>
@@ -32,4 +34,4 @@ class PagenotFound extends PureComponent {
   }
 }
 
-export default PagenotFound;
+export default withRouter(PagenotFound);

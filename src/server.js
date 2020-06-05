@@ -25,11 +25,12 @@ app.get("*", (req, res) => {
                  <link rel="stylesheet" href="/css/app.css">
             </head>
             <body>
-                <div id="home-container"> hola mundo${html}</div>
-                <div id="modal-container"></div>
-                <!-- script src="http://localhost:9000/js/app.js"></script>-->
-                 <script src="/js/home.js"></script> 
+              <div id="home-container">${html}</div>
+              <div id="modal-container"></div>
+              <!-- <script src="http://localhost:9000/js/app.js"></script> -->
+              <script src="/js/app.js"></script>
             </body>
+        
         </html>
         `);
   res.end();

@@ -11,6 +11,7 @@ import {  Route, Switch, Redirect } from "react-router-dom";
 
 
 import Videos from "./videos";
+import Video from "./video";
 import Home from "../components/home";
 import Contact from "../components/contact";
 import Header from "../components/header.js";
@@ -38,8 +39,10 @@ class App extends Component {
                     <Switch>
                         <Route path="/" exact component={Home} />
                         <Route path="/videos" exact component={Videos} />
+                        <Route path="/videos/:id" exact component={Video} />
                         <Route path="/contacto" exact component={Contact} />
                         <Redirect from="/v" to="/videos" />
+                        <Redirect from="/v/:id" to="/videos/:id" />
                         <Route component={PagenotFound} />
                     </Switch>
                 </Fragment>
